@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"html-css-class-completion.CSSLanguages": ["css", "sass", "scss"],
+		"html-css-class-completion.HTMLLanguages": ["html", "javascript", "js", "jsx", "vue", "razor", "blade", "handlebars", "twig", "django-html", "php", "markdown", "erb", "ejs", "svelte"],
+		"html-css-class-completion.includeGlobPattern": "**/*.{css,html,js,jsx,tsx}",
+		"html-css-class-completion.JavaScriptLanguages": ["javascript", "javascriptreact", "typescriptreact"]
+	}
+}
