@@ -12,13 +12,13 @@ export default function TopNavbar() {
 
   return (
     <>
-      <Navbar bg="dark" variant="dark" expand="lg">
+      <Navbar bg="light" variant="light" expand="lg">
         <Container>
           <Navbar.Brand><Link href="/">Content Manager</Link></Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto"></Nav>
-            <Nav className="">
+            <Nav>
               <ActiveLink href="/home" type="navLink" exact={true}>Home</ActiveLink>
               <ActiveLink href="/home/about" type="navLink">About</ActiveLink>
               <NavDropdown title="Resources" id="resources-nav-dropdown">

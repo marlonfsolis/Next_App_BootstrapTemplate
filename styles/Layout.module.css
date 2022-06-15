@@ -1,5 +1,10 @@
 .leftContent {
 	border: 0px red solid;
+	transition: width 5s;
+}
+
+.sideNavbar {
+	transition: width 0.1s linear;
 }
 
 .content {

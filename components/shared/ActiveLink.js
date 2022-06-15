@@ -22,7 +22,7 @@ const ActiveLink = ({ children, exact, type, ...props }) => {
   let classes = childClassName;
 
   if (isExact) {
-    if (href === asPath) {
+    if (href === asPath || href + "#" === asPath) {
       classes = `${childClassName} ${activeClassName}`.trim();
     }
   } else if (asPath.startsWith(href)) {
