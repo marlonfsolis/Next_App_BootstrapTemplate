@@ -13,10 +13,10 @@ export default function Layout({ children }) {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 
-			<div className="d-flex flex-row vh-100">
+			<div className="d-block d-sm-flex flex-sm-row vh-100">
 				<SideNavbar></SideNavbar>
 
-				<div className={styles.leftContent + " d-flex flex-column flex-fill"}>
+				<div className={styles.leftContent + " d-block d-sm-flex flex-sm-column flex-fill"}>
 					<TopNavbar></TopNavbar>
 					<section id="content" className={styles.content + " flex-fill"}>
 						{children}

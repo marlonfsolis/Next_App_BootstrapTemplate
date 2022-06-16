@@ -7,18 +7,24 @@ export default function SideNavbar(props) {
   const [sideNavbarStatus, sideNavbarStatusSet] = useState(sideNavbarStatuses.Close)
   const [sideNavbarWidth, sideNavbarWidthSet] = useState("4.5rem");
 
-  function sideNavbarToggleBtn() {
-    if (sideNavbarStatus === sideNavbarStatuses.Close) {
-      sideNavbarWidthSet("280px");
-      setTimeout(() => {
-        sideNavbarStatusSet(sideNavbarStatuses.Open)
-      }, 100);
-    }
-    if (sideNavbarStatus === sideNavbarStatuses.Open) {
-      sideNavbarWidthSet("4.5rem");
-      setTimeout(() => {
-        sideNavbarStatusSet(sideNavbarStatuses.Close)
-      }, 80);
+  function onClick_SideNavbarToggleBtn(action) {
+    switch (action) {
+      case sideNavbarStatuses.Open:
+        sideNavbarWidthSet("280px");
+        setTimeout(() => {
+          sideNavbarStatusSet(sideNavbarStatuses.Open)
+        }, 100);
+        break;
+
+      case sideNavbarStatuses.Close:
+        sideNavbarWidthSet("4.5rem");
+        setTimeout(() => {
+          sideNavbarStatusSet(sideNavbarStatuses.Close)
+        }, 80);
+        break;
+
+      default:
+        break;
     }
   }
 
@@ -29,7 +35,7 @@ export default function SideNavbar(props) {
           <i className="bi bi-bootstrap me-2" width="40" height="32"></i>
           <span className="fs-4">Sidebar</span>
         </a>
-        <a href="#" className="text-white text-decoration-none" onClick={sideNavbarToggleBtn}>
+        <a href="#" className="text-white text-decoration-none" onClick={(event) => onClick_SideNavbarToggleBtn(sideNavbarStatuses.Close, event)}>
           <i className="bi bi-caret-left"></i>
         </a>
       </div>
@@ -91,7 +97,7 @@ export default function SideNavbar(props) {
           <i className="bi bi-bootstrap" width="40" height="32"></i>
           <span className="visually-hidden">Icon-only</span>
         </a>
-        <a href="#" className="text-white text-decoration-none" onClick={sideNavbarToggleBtn}>
+        <a href="#" className="text-white text-decoration-none" onClick={(event) => onClick_SideNavbarToggleBtn(sideNavbarStatuses.Open, event)}>
           <i className="bi bi-caret-right"></i>
         </a>
       </div>
@@ -140,8 +146,10 @@ export default function SideNavbar(props) {
 
   return (
     <>
-      {sideNavbarStatus === sideNavbarStatuses.Open && openNavbar}
-      {sideNavbarStatus === sideNavbarStatuses.Close && closeNavbar}
+      <div className="vh-100 d-none d-sm-flex d-md-flex">
+        {sideNavbarStatus === sideNavbarStatuses.Open && openNavbar}
+        {sideNavbarStatus === sideNavbarStatuses.Close && closeNavbar}
+      </div>
     </>
   )
 }

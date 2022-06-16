@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import ActiveLink from "./ActiveLink";
@@ -6,14 +7,23 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import Offcanvas from "react-bootstrap/Offcanvas"
 
 export default function TopNavbar() {
-  const router = useRouter();
+  const router = useRouter()
+  const [offcanvasShow, setOffcanvasShow] = useState(false)
+
+  const offcanvasHandleOpen = () => setOffcanvasShow(true)
+  const offcanvasHandleClose = () => setOffcanvasShow(false)
+
 
   return (
     <>
       <Navbar bg="light" variant="light" expand="lg">
         <Container>
+          <span className="d-inline d-sm-none">
+            <Navbar.Toggle onClick={offcanvasHandleOpen} />
+          </span>
           <Navbar.Brand><Link href="/">Content Manager</Link></Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
@@ -32,6 +42,16 @@ export default function TopNavbar() {
           </Navbar.Collapse>
         </Container>
       </Navbar>
+
+      <Offcanvas show={offcanvasShow} onHide={offcanvasHandleClose}>
+        <Offcanvas.Header closeButton>
+          <Offcanvas.Title>Offcanvas</Offcanvas.Title>
+        </Offcanvas.Header>
+        <Offcanvas.Body>
+          Some text as placeholder. In real life you can have the elements you
+          have chosen. Like, text, images, lists, etc.
+        </Offcanvas.Body>
+      </Offcanvas>
     </>
   )
 }
