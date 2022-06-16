@@ -8,12 +8,21 @@ import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Offcanvas from "react-bootstrap/Offcanvas"
+import SideNavbarMenuItems from "./SideNavbarMenuItems";
 
 export default function TopNavbar() {
   const router = useRouter()
+
+  const title = "Content Manager"
   const [offcanvasShow, setOffcanvasShow] = useState(false)
 
-  const offcanvasHandleOpen = () => setOffcanvasShow(true)
+
+  function offcanvasHandleOpen(event) {
+    event.preventDefault()
+    event.stopPropagation()
+    setOffcanvasShow(true)
+  }
+  // const offcanvasHandleOpen = (event) => { event.preventDefault(); setOffcanvasShow(true); }
   const offcanvasHandleClose = () => setOffcanvasShow(false)
 
 
@@ -22,9 +31,11 @@ export default function TopNavbar() {
       <Navbar bg="light" variant="light" expand="lg">
         <Container>
           <span className="d-inline d-sm-none">
-            <Navbar.Toggle onClick={offcanvasHandleOpen} />
+            <button type="button" className="navbar-toggler collapsed" onClick={offcanvasHandleOpen}>
+              <span className="navbar-toggler-icon"></span>
+            </button>
           </span>
-          <Navbar.Brand><Link href="/">Content Manager</Link></Navbar.Brand>
+          <Navbar.Brand><Link href="/">{title}</Link></Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto"></Nav>
@@ -43,13 +54,17 @@ export default function TopNavbar() {
         </Container>
       </Navbar>
 
-      <Offcanvas show={offcanvasShow} onHide={offcanvasHandleClose}>
+      <Offcanvas show={offcanvasShow} onHide={offcanvasHandleClose} className="text-white bg-dark" id="offcanvas">
         <Offcanvas.Header closeButton>
-          <Offcanvas.Title>Offcanvas</Offcanvas.Title>
+          <Offcanvas.Title>
+            <a href="#" className="d-flex flex-fill align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+              <i className="bi bi-bootstrap me-2" width="40" height="32"></i>
+              <span className="fs-4">{title}</span>
+            </a>
+          </Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
-          Some text as placeholder. In real life you can have the elements you
-          have chosen. Like, text, images, lists, etc.
+          <SideNavbarMenuItems />
         </Offcanvas.Body>
       </Offcanvas>
     </>

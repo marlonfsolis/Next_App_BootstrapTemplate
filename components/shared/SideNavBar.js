@@ -1,4 +1,5 @@
 import { useState } from "react"
+import SideNavbarMenuItems from "./SideNavbarMenuItems";
 import styles from "styles/Layout.module.css";
 
 export default function SideNavbar(props) {
@@ -41,7 +42,8 @@ export default function SideNavbar(props) {
       </div>
 
       <hr />
-      <ul className="nav nav-pills flex-column mb-auto">
+      <SideNavbarMenuItems />
+      {/* <ul className="nav nav-pills flex-column mb-auto">
         <li className="nav-item">
           <a href="#" className="nav-link active" aria-current="page">
             <i className="bi bi-house me-2" width="16" height="16">i</i>
@@ -72,7 +74,7 @@ export default function SideNavbar(props) {
             Customers
           </a>
         </li>
-      </ul>
+      </ul> */}
       <hr />
       <div className="dropdown">
         <a href="#" className="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
