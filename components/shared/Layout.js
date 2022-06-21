@@ -1,9 +1,11 @@
-import styles from "styles/Layout.module.css";
+import { ToastContainer } from "react-toastify";
+
 import Head from "next/head";
-import Footer from "./Footer";
+import FooterComp from "./FooterComp";
 import SideNavbar from "./SideNavBar";
 import TopNavbar from "./TopNavbar";
-import { ToastContainer } from "react-toastify";
+
+import styles from "styles/Layout.module.css";
 
 export default function Layout({ children }) {
 	return (
@@ -20,8 +22,8 @@ export default function Layout({ children }) {
 					<TopNavbar></TopNavbar>
 					<section id="content" className={styles.content + " flex-fill"}>
 						{children}
+						<FooterComp></FooterComp>
 					</section>
-					<Footer></Footer>
 				</div>
 			</div>
 

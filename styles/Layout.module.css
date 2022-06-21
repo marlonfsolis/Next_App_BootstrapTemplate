@@ -9,9 +9,12 @@
 
 .content {
 	border: 0px red solid;
+	max-height: 900px;
+	overflow: auto;
 }
 
 .sideNavbarOffcanvasOpenBtn {
+	border: 0px red solid;
 	/* width: 10px;
 	height: 10px; */
 }
