@@ -43,7 +43,7 @@ export default function TopNavbar() {
               <ActiveLink href="/home" type="navLink" exact={true}>Home</ActiveLink>
               <ActiveLink href="/home/about" type="navLink">About</ActiveLink>
               <NavDropdown title="Resources" id="resources-nav-dropdown">
-                <ActiveLink href="/resources/add" type="dropdownItem">Add</ActiveLink>
+                <ActiveLink href="#" type="dropdownItem">An Action</ActiveLink>
                 <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
                 <NavDropdown.Divider />
