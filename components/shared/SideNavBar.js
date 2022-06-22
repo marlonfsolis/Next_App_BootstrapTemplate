@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Image from "next/image"
 
 import SideNavbarMenuItems from "./SideNavbarMenuItems";
@@ -7,23 +7,43 @@ import styles from "styles/Layout.module.css";
 
 export default function SideNavbar(props) {
   const sideNavbarStatuses = { Close: "Close", Open: "Open", Offcanvas: "Offcanvas" }
-  // let sideNavbarStatus = sideNavbarStatuses.Close
-  const [sideNavbarStatus, sideNavbarStatusSet] = useState(sideNavbarStatuses.Close)
-  const [sideNavbarWidth, sideNavbarWidthSet] = useState("4.5rem");
+  const [sideNavbarStatus, setSideNavbarStatus] = useState(sideNavbarStatuses.Close)
+  const [sideNavbarWidth, setSideNavbarWidth] = useState("4.5rem");
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const snbs = localStorage.getItem("sideNavbarStatus");
+      if (!snbs) {
+        localStorage.setItem("sideNavbarStatus", sideNavbarStatuses.Close);
+      } else {
+        if (snbs === sideNavbarStatuses.Open) {
+          setSideNavbarStatus(sideNavbarStatuses.Open);
+          setSideNavbarWidth("280px");
+        } else {
+          setSideNavbarStatus(sideNavbarStatuses.Close);
+          setSideNavbarWidth("4.5rem");
+        }
+      }
+
+      console.log(localStorage.getItem("sideNavbarStatus"));
+    }
+  }, [sideNavbarStatuses.Open, sideNavbarStatuses.Close])
 
   function onClick_SideNavbarToggleBtn(action) {
     switch (action) {
       case sideNavbarStatuses.Open:
-        sideNavbarWidthSet("280px");
+        setSideNavbarWidth("280px");
         setTimeout(() => {
-          sideNavbarStatusSet(sideNavbarStatuses.Open)
+          setSideNavbarStatus(sideNavbarStatuses.Open)
+          localStorage.setItem("sideNavbarStatus", sideNavbarStatuses.Open);
         }, 100);
         break;
 
       case sideNavbarStatuses.Close:
-        sideNavbarWidthSet("4.5rem");
+        setSideNavbarWidth("4.5rem");
         setTimeout(() => {
-          sideNavbarStatusSet(sideNavbarStatuses.Close)
+          setSideNavbarStatus(sideNavbarStatuses.Close)
+          localStorage.setItem("sideNavbarStatus", sideNavbarStatuses.Close);
         }, 80);
         break;
 

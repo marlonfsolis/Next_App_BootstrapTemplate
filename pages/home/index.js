@@ -1,12 +1,12 @@
 import Head from "next/head"
 
-import Layout from "components/shared/layout"
+import Layout from "components/shared/Layout"
 
 import styles from 'styles/Home.module.css'
 
 export default function Home() {
   return (
-    <Layout>
+    <>
       <div className={styles.container}>
         <Head>
           <title>Create Next App</title>
@@ -55,6 +55,6 @@ export default function Home() {
           </div>
         </main>
       </div>
-    </Layout>
+    </>
   );
 }
