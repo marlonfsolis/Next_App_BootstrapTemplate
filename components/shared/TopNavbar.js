@@ -22,8 +22,12 @@ export default function TopNavbar() {
     event.stopPropagation()
     setOffcanvasShow(true)
   }
-  // const offcanvasHandleOpen = (event) => { event.preventDefault(); setOffcanvasShow(true); }
+
   const offcanvasHandleClose = () => setOffcanvasShow(false)
+
+  function onItemClickHandler(e) {
+    offcanvasHandleClose();
+  }
 
 
   return (
@@ -64,7 +68,7 @@ export default function TopNavbar() {
           </Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
-          <SideNavbarMenuItems />
+          <SideNavbarMenuItems onItemClick={onItemClickHandler} />
         </Offcanvas.Body>
       </Offcanvas>
     </>

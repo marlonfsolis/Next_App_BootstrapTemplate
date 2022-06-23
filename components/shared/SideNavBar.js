@@ -24,10 +24,9 @@ export default function SideNavbar(props) {
           setSideNavbarWidth("4.5rem");
         }
       }
-
-      console.log(localStorage.getItem("sideNavbarStatus"));
     }
   }, [sideNavbarStatuses.Open, sideNavbarStatuses.Close])
+
 
   function onClick_SideNavbarToggleBtn(action) {
     switch (action) {
@@ -51,6 +50,7 @@ export default function SideNavbar(props) {
         break;
     }
   }
+
 
   const openNavbar = (
     <div className={styles.sideNavbar + " d-flex flex-column flex-shrink-0 p-3 text-white bg-dark"} style={{ width: sideNavbarWidth }}>
@@ -122,6 +122,7 @@ export default function SideNavbar(props) {
           </a>
         </li>
       </ul>
+
       <div className="dropdown border-top">
         <a href="#" className="d-flex align-items-center justify-content-center p-3 link-dark text-decoration-none dropdown-toggle" id="dropdownUser3" data-bs-toggle="dropdown" aria-expanded="false">
           <Image src="https://github.com/mdo.png" alt="mdo" width={24} height={24} className="rounded-circle" />

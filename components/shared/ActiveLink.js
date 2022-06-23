@@ -1,10 +1,16 @@
 import { useRouter } from 'next/router'
 import React from 'react'
 
-const ActiveLink = ({ children, exact, type, ...props }) => {
+const ActiveLink = (props) => {
   const router = useRouter();
   const { asPath } = useRouter();
+
+  const children = props.children;
+  const exact = props.exact;
+  const type = props.type;
   const href = props.href;
+  const onItemClick = props.onItemClick || function (params) { };
+
   let childClassName = "nav-link";
   const activeClassName = "active";
   const isExact = exact || false;
@@ -31,9 +37,9 @@ const ActiveLink = ({ children, exact, type, ...props }) => {
 
   const handleClick = (e) => {
     e.preventDefault();
+    onItemClick(e);
     router.push(href);
-    const element = e.target.parentElement.previousElementSibling;
-    element.click();
+
     // console.log(e);
   };
 
