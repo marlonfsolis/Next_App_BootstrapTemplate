@@ -18,3 +18,11 @@
 	/* width: 10px;
 	height: 10px; */
 }
+
+.sideNavbarDropdown > a,
+.sideNavbarDropdown > a:hover,
+.sideNavbarDropdown > a:active,
+.sideNavbarDropdown > a:focus {
+	color: white;
+	font-weight: bold;
+}
