@@ -1,10 +1,15 @@
-import { useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
 import Image from "next/image";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import Dropdown from "react-bootstrap/Dropdown";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Popover from "react-bootstrap/Popover";
+import Button from "react-bootstrap/Button";
 
 import SideNavbarMenuItems from "./SideNavbarMenuItems";
 
 import styles from "styles/Layout.module.css";
+
 
 export default function SideNavbar(props) {
   const sideNavbarStatuses = { Close: "Close", Open: "Open", Offcanvas: "Offcanvas" }
@@ -69,15 +74,18 @@ export default function SideNavbar(props) {
       <SideNavbarMenuItems />
       <hr />
       <div className="d-flex justify-content-center">
-        <div className="d-flex align-items-center" id="dropdownUser1">
-          <Image src="https://github.com/mdo.png" alt="" width={32} height={32} className="rounded-circle" />
-          <NavDropdown title="mdo" id="navbarScrollingDropdown" className={styles.sideNavbarDropdown}>
-            <NavDropdown.Item href="#action3">New project...</NavDropdown.Item>
-            <NavDropdown.Item href="#action4">Settings</NavDropdown.Item>
-            <NavDropdown.Item href="#action4">Profile</NavDropdown.Item>
-            <NavDropdown.Divider />
-            <NavDropdown.Item href="#action5">Sign out</NavDropdown.Item>
-          </NavDropdown>
+        <div className="dropdown">
+          <a href="#" className="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+            <Image src="https://github.com/mdo.png" alt="" width={32} height={32} className="rounded-circle me-2" />
+            <strong>mdo</strong>
+          </a>
+          <ul className="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+            <li><a className="dropdown-item" href="#">New project...</a></li>
+            <li><a className="dropdown-item" href="#">Settings</a></li>
+            <li><a className="dropdown-item" href="#">Profile</a></li>
+            <li><hr className="dropdown-divider" /></li>
+            <li><a className="dropdown-item" href="#">Sign out</a></li>
+          </ul>
         </div>
       </div>
     </div>
@@ -122,12 +130,11 @@ export default function SideNavbar(props) {
           </a>
         </li>
       </ul>
-
       <div className="dropdown border-top">
         <a href="#" className="d-flex align-items-center justify-content-center p-3 link-dark text-decoration-none dropdown-toggle" id="dropdownUser3" data-bs-toggle="dropdown" aria-expanded="false">
           <Image src="https://github.com/mdo.png" alt="mdo" width={24} height={24} className="rounded-circle" />
         </a>
-        <ul className="dropdown-menu text-small shadow" aria-labelledby="dropdownUser3">
+        <ul className={"dropdown-menu text-small shadow"} aria-labelledby="dropdownUser3">
           <li><a className="dropdown-item" href="#">New project...</a></li>
           <li><a className="dropdown-item" href="#">Settings</a></li>
           <li><a className="dropdown-item" href="#">Profile</a></li>
