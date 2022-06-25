@@ -5,14 +5,17 @@ const ActiveLink = (props) => {
   const router = useRouter();
   const { asPath } = useRouter();
 
+  // Props
   const children = props.children;
   const exact = props.exact;
   const type = props.type;
   const href = props.href;
+  const className = props.className;
+  const activeClassName = props.activeClassName || "active";
   const onItemClick = props.onItemClick || function (params) { };
 
+
   let childClassName = "nav-link";
-  const activeClassName = "active";
   const isExact = exact || false;
   let role = "button";
 
