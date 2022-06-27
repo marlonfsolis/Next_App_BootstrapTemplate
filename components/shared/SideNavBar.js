@@ -1,10 +1,5 @@
 import React, { useEffect, useState } from "react"
 import Image from "next/image";
-import NavDropdown from "react-bootstrap/NavDropdown";
-import Dropdown from "react-bootstrap/Dropdown";
-import OverlayTrigger from "react-bootstrap/OverlayTrigger";
-import Popover from "react-bootstrap/Popover";
-import Button from "react-bootstrap/Button";
 
 import SideNavbarMenuItems from "./SideNavbarMenuItems";
 
