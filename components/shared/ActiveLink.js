@@ -6,36 +6,20 @@ const ActiveLink = (props) => {
   const { asPath } = useRouter();
 
   // Props
+  let classes = props.className || "";
   const children = props.children;
-  const exact = props.exact;
-  const type = props.type;
-  const href = props.href;
-  const className = props.className;
+  const isExact = props.exact || false;
+  const href = props.href || "";
   const activeClassName = props.activeClassName || "active";
+  const role = props.role || "";
   const onItemClick = props.onItemClick || function (params) { };
 
+  const addActiveClass = () => { classes = classes.concat(" ", activeClassName) };
 
-  let childClassName = "nav-link";
-  const isExact = exact || false;
-  let role = "button";
-
-  if (type !== "navLink" && type !== "dropdownItem") {
-    type = "navLink";
-  }
-
-  if (type === "dropdownItem") {
-    childClassName = "dropdown-item";
-    role = "";
-  }
-
-  let classes = childClassName;
-
-  if (isExact) {
-    if (href === asPath || href + "#" === asPath) {
-      classes = `${childClassName} ${activeClassName}`.trim();
-    }
-  } else if (asPath.startsWith(href)) {
-    classes = `${childClassName} ${activeClassName}`.trim();
+  if ((isExact && (href === asPath || href + "#" === asPath))
+    || (!isExact && asPath.startsWith(href))
+  ) {
+    addActiveClass();
   }
 
   const handleClick = (e) => {
@@ -47,7 +31,7 @@ const ActiveLink = (props) => {
   };
 
   return (
-    <a role={role} href={href} onClick={handleClick} className={classes}>
+    <a href={href} onClick={handleClick} className={classes}>
       {children}
     </a>
   )
