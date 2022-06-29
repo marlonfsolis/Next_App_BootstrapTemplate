@@ -1,13 +1,7 @@
 import React from "react";
 import { useState } from "react";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import ActiveLink from "./ActiveLink";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import Container from "react-bootstrap/Container";
-import NavDropdown from "react-bootstrap/NavDropdown";
-import Offcanvas from "react-bootstrap/Offcanvas"
 import SideNavbarMenuItems from "./SideNavbarMenuItems";
 
 export default function TopNavbar() {
@@ -17,14 +11,10 @@ export default function TopNavbar() {
   const [offcanvasShow, setOffcanvasShow] = useState(false);
 
 
-  function offcanvasHandleOpen(event) {
-    setOffcanvasShow(true);
-  }
-
-  const offcanvasHandleClose = () => setOffcanvasShow(false);
-
   function onItemClickHandler(e) {
-    offcanvasHandleClose();
+    var offcanvasElem = document.getElementById("sideNavbarOffcanvas");
+    var offcanvasInst = bootstrap.Offcanvas.getOrCreateInstance(offcanvasElem);
+    offcanvasInst.hide();
     console.log("Item clicked!");
   }
 
@@ -33,10 +23,7 @@ export default function TopNavbar() {
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
-          {/* <button className="navbar-toggler d-sm-none" type="button" onClick={offcanvasHandleOpen}>
-            <span className="navbar-toggler-icon"></span>
-          </button> */}
-          <button className="navbar-toggler d-sm-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+          <button className="navbar-toggler d-sm-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#sideNavbarOffcanvas" aria-controls="sideNavbarOffcanvas">
             <span className="navbar-toggler-icon"></span>
           </button>          
           <ActiveLink href="/home" exact={true} className="navbar-brand" >{title}</ActiveLink>
@@ -71,22 +58,7 @@ export default function TopNavbar() {
       </nav>
 
 
-      {/* <Offcanvas show={offcanvasShow} onHide={offcanvasHandleClose} className="text-white bg-dark" id="offcanvas">
-        <Offcanvas.Header closeButton>
-          <Offcanvas.Title>
-            <a href="#" className="d-flex flex-fill align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-              <i className="bi bi-bootstrap me-2" width="40" height="32"></i>
-              <span className="fs-4">{title}</span>
-            </a>
-          </Offcanvas.Title>
-        </Offcanvas.Header>
-        <Offcanvas.Body>
-          <SideNavbarMenuItems onItemClick={onItemClickHandler} />
-        </Offcanvas.Body>
-      </Offcanvas> */}
-
-
-      <div className="offcanvas offcanvas-start text-white bg-dark" tabIndex="-1" id="offcanvasExample" aria-labelledby="offcanvasLabel">
+      <div className="offcanvas offcanvas-start text-white bg-dark" tabIndex="-1" id="sideNavbarOffcanvas" aria-labelledby="offcanvasLabel">
         <div className="offcanvas-header">
           <h5 className="offcanvas-title" id="offcanvasLabel">{title}</h5>
           <button type="button" className="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
