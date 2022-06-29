@@ -11,7 +11,7 @@ const ActiveLink = (props) => {
   const isExact = props.exact || false;
   const href = props.href || "";
   const activeClassName = props.activeClassName || "active";
-  const role = props.role || "";
+  const role = props.role || null;
   const onItemClick = props.onItemClick || function (params) { };
 
   const addActiveClass = () => { classes = classes.concat(" ", activeClassName) };
@@ -30,8 +30,12 @@ const ActiveLink = (props) => {
     // console.log(e);
   };
 
+  const elemProps = {
+    role: role
+  };
+
   return (
-    <a href={href} onClick={handleClick} className={classes}>
+    <a href={href} onClick={handleClick} className={classes} {...elemProps}>
       {children}
     </a>
   )

@@ -35,7 +35,7 @@ export default function SideNavbarMenuItems(props) {
         <ActiveLink href="#" className="nav-link text-white" onItemClick={onItemClickHandler}>
           <i className="bi bi-grid me-2" width="16" height="16"></i>
           Products
-        </ActiveLink>        
+        </ActiveLink>
       </li>
       <li>
         <ActiveLink href="#" className="nav-link text-white" onItemClick={onItemClickHandler}>
