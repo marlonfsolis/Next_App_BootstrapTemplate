@@ -1,15 +1,14 @@
 import React from "react";
-import { useState } from "react";
 import { useRouter } from "next/router";
+
 import ActiveLink from "./ActiveLink";
 import SideNavbarMenuItems from "./SideNavbarMenuItems";
 
+
 export default function TopNavbar() {
-  const router = useRouter()
+  const router = useRouter();
 
   const title = "Next-Bootstrap App";
-  const [offcanvasShow, setOffcanvasShow] = useState(false);
-
 
   function onItemClickHandler(e) {
     var offcanvasElem = document.getElementById("sideNavbarOffcanvas");
@@ -25,18 +24,18 @@ export default function TopNavbar() {
         <div className="container-fluid">
           <button className="navbar-toggler d-sm-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#sideNavbarOffcanvas" aria-controls="sideNavbarOffcanvas">
             <span className="navbar-toggler-icon"></span>
-          </button>          
+          </button>
           <ActiveLink href="/home" exact={true} className="navbar-brand" >{title}</ActiveLink>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#topNavbarContent" aria-controls="topNavbarContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="collapse navbar-collapse" id="topNavbarContent">         
+          <div className="collapse navbar-collapse" id="topNavbarContent">
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <ActiveLink href="/home" exact={true} className="nav-link" >Home</ActiveLink>
+                <ActiveLink href="/home" exact={true} className="nav-link">Home</ActiveLink>
               </li>
               <li className="nav-item">
-                <ActiveLink href="/home/about" className="nav-link" >About</ActiveLink>
+                <ActiveLink href="/home/about" className="nav-link">About</ActiveLink>
               </li>
               <li className="nav-item dropdown">
                 <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
