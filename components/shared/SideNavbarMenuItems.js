@@ -1,5 +1,3 @@
-import Link from "next/link"
-import Nav from "react-bootstrap/Nav"
 
 import ActiveLink from "./ActiveLink"
 

@@ -1,3 +1,17 @@
+.borderRed {
+	border: 1px red solid;
+}
+
+.borderGrren {
+	border: 1px green solid;
+}
+
+.loader {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+}
+
 .leftContent {
 	border: 0px red solid;
 	transition: width 5s;
@@ -26,4 +40,3 @@
 	color: white;
 	font-weight: bold;
 }
-

@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 
 import SideNavbarMenuItems from "./SideNavbarMenuItems";
+import ActiveLink from "./ActiveLink";
 
 import styles from "styles/Layout.module.css";
 
@@ -54,12 +55,12 @@ export default function SideNavbar(props) {
 
 
   const openNavbar = (
-    <div className={styles.sideNavbar + " d-flex flex-column flex-shrink-0 p-3 text-white bg-dark"} style={{ width: sideNavbarWidth }}>
+    <div className={[styles.sideNavbar, "d-flex flex-column flex-shrink-0 p-3 text-white bg-dark"].join(" ")} style={{ width: sideNavbarWidth }}>
       <div className="d-flex flex-row align-items-center">
-        <a href="#" className="d-flex flex-fill align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+        <ActiveLink href="/" className="d-flex flex-fill align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
           <i className="bi bi-bootstrap me-2" width="40" height="32"></i>
-          <span className="fs-4">Sidebar</span>
-        </a>
+          <span className="fs-4">Menu</span>
+        </ActiveLink>
         <a href="#" className="text-white text-decoration-none" onClick={(event) => onClick_SideNavbarToggleBtn(sideNavbarStatuses.Close, event)}>
           <i className="bi bi-caret-left"></i>
         </a>
@@ -87,7 +88,7 @@ export default function SideNavbar(props) {
   )
 
   const closeNavbar = (
-    <div className={styles.sideNavbar + " d-flex flex-column flex-shrink-0 bg-dark"} style={{ width: sideNavbarWidth }}>
+    <div className={[styles.sideNavbar, "d-flex flex-column flex-shrink-0 bg-dark"].join(" ")} style={{ width: sideNavbarWidth }}>
       <div className="d-flex flex-row align-items-center">
         <a href="#" className="d-block p-3 link-light text-decoration-none" title="Icon-only" data-bs-toggle="tooltip" data-bs-placement="right">
           <i className="bi bi-bootstrap" width="40" height="32"></i>

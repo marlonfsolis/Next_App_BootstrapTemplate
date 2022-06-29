@@ -1,21 +1,17 @@
-import Spinner from "react-bootstrap/Spinner";
-import Stack from "react-bootstrap/Stack";
+
+import styles from "styles/Layout.module.css";
 
 const LoaderSpinner = () => {
   return (
-    <Stack className="vh-100 vw-100 justify-content-center align-items-center">
-      <Spinner animation="grow" size="lg" role={"status"}>
-        <span className="visually-hidden">Loading...</span>
-      </Spinner>
-    </Stack >
-  );
-}
+    <>
+      <div className={[styles.loader, "d-flex justify-content-center align-items-center"].join(" ")}>
+        <div className="spinner-grow" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    </>
 
-const styles = {
-  loader: {
-    borderColor: "transparent",
-    fontSize: "100px"
-  }
+  );
 }
 
 export default LoaderSpinner;

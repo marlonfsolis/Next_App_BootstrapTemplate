@@ -18,9 +18,9 @@ export default function Layout({ children }) {
 			<div className="d-block d-sm-flex flex-sm-row vh-100">
 				<SideNavbar></SideNavbar>
 
-				<div className={styles.leftContent + " d-block d-sm-flex flex-sm-column flex-fill"}>
+				<div className={[styles.leftContent, "d-block d-sm-flex flex-sm-column flex-fill"].join(" ")}>
 					<TopNavbar></TopNavbar>
-					<section id="content" className={styles.content + " flex-fill"}>
+					<section id="content" className={[styles.content, "flex-fill"].join(" ")}>
 						{children}
 						<FooterComp></FooterComp>
 					</section>

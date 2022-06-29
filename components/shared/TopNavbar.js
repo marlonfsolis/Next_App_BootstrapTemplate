@@ -8,8 +8,6 @@ import SideNavbarMenuItems from "./SideNavbarMenuItems";
 export default function TopNavbar() {
   const router = useRouter();
 
-  const title = "Next-Bootstrap App";
-
   function onItemClickHandler(e) {
     var offcanvasElem = document.getElementById("sideNavbarOffcanvas");
     var offcanvasInst = bootstrap.Offcanvas.getOrCreateInstance(offcanvasElem);
@@ -25,7 +23,7 @@ export default function TopNavbar() {
           <button className="navbar-toggler d-sm-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#sideNavbarOffcanvas" aria-controls="sideNavbarOffcanvas">
             <span className="navbar-toggler-icon"></span>
           </button>
-          <ActiveLink href="/home" exact={true} className="navbar-brand" >{title}</ActiveLink>
+          <ActiveLink href="/home" exact={true} className="navbar-brand">Next-Bootstrap App</ActiveLink>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#topNavbarContent" aria-controls="topNavbarContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
@@ -59,7 +57,9 @@ export default function TopNavbar() {
 
       <div className="offcanvas offcanvas-start text-white bg-dark" tabIndex="-1" id="sideNavbarOffcanvas" aria-labelledby="offcanvasLabel">
         <div className="offcanvas-header">
-          <h5 className="offcanvas-title" id="offcanvasLabel">{title}</h5>
+          <h5 className="offcanvas-title" id="offcanvasLabel">
+            <i className="bi bi-bootstrap me-2" width="40" height="32"></i>Menu
+          </h5>
           <button type="button" className="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div className="offcanvas-body">
