@@ -130,7 +130,7 @@ export default function SideNavbar(props) {
         <a href="#" className="d-flex align-items-center justify-content-center p-3 link-dark text-decoration-none dropdown-toggle" id="dropdownUser3" data-bs-toggle="dropdown" aria-expanded="false">
           <Image src="https://github.com/mdo.png" alt="mdo" width={24} height={24} className="rounded-circle" />
         </a>
-        <ul className={"dropdown-menu text-small shadow"} aria-labelledby="dropdownUser3">
+        <ul className={"dropdown-menu dropdown-menu-dark text-small shadow"} aria-labelledby="dropdownUser3">
           <li><a className="dropdown-item" href="#">New project...</a></li>
           <li><a className="dropdown-item" href="#">Settings</a></li>
           <li><a className="dropdown-item" href="#">Profile</a></li>
